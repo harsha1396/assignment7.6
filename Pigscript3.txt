@@ -1,0 +1,6 @@
+Find out the number of medals india won year wise.
+
+rel2 = FILTER a by country == 'India';
+grp = GROUP rel2 by year;
+medal_cnt = FOREACH grp GENERATE group AS year, SUM(a_filter.total) as total_cnt;
+dump medal_cnt;

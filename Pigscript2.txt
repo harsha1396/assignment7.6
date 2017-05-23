@@ -1,0 +1,6 @@
+Find out the number of medals each country won in archery.
+
+rel1 = FILTER a by sport =='Archery';
+grp_country = GROUP rel1 by country;
+medal_count = FOREACH grp_country GENERATE group AS country, SUM(rel1.total) as cnt;
+DUMP medal_count;

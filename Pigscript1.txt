@@ -1,0 +1,11 @@
+Write a macro in pig to filter out the people with age >45 from the below given dataset.
+
+DEFINE mac(x,y) returns result
+{
+ $result = filter $x by $y > 45;
+};
+
+a = LOAD '/home/acadgild/olympix_data.csv' USING PigStorage(',') as (name:chararray, age:int, country:chararray, year:chararray,
+close_date:chararray, sport:chararray, gold_medal:int, silver_medal:int, bronze_medal:int, total:int);
+x1 = mac(a,age);
+dump x1;
